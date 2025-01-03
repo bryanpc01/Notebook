@@ -1,5 +1,5 @@
 ---
-title: NetSec Notes
+title: CS-GY 6823 - Network Security Notes
 description: Network Security notes for my CS-GY 6823 course at NYU.
 ---
 

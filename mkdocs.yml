@@ -37,6 +37,7 @@ theme:
   features:
     - header.autohide
     - navigation.footer
+    - navigation.indexes
     - search.suggest
     - search.highlight
     - search.share
@@ -85,6 +86,3 @@ markdown_extensions:
   - tables
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
