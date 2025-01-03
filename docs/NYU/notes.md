@@ -4,9 +4,8 @@ description: Network Security notes for my CS-GY 6823 course at NYU.
 ---
 
 # Network Security Notes
-
 ## Finding IP Addresses
-Commands used to get the IP address of a NIC. 
+Commands used to get the IP address of a NIC.
 
 ``` hl_lines="5 11"
 $ ip address
@@ -25,7 +24,7 @@ $ ip address
        valid_lft forever preferred_lft forever
 ```
 
-The previous `#!bash ip address` command is extreamly verbose. The `#!bash -br` flag is used for brevity. 
+The previous `#!bash ip address` command is extremely verbose. The `#!bash -br` flag is used for brevity.
 ``` hl_lines="3 4"
 $ ip -br address
 
@@ -40,18 +39,18 @@ $ dig www.example.com
 www.example.com.	1054	IN	A	93.184.215.14
 ```
 ## Sending Packets
-Netcat can be used as a simple UDP server. 
+Netcat can be used as a simple UDP server.
 ```
-$ nc -lnuv 9090 
+$ nc -lnuv 9090
 ```
-While the UDP server is listening on port 9090 we can send data via a simple UDP client. 
+While the UDP server is listening on port 9090 we can send data via a simple UDP client.
 
 ``` py title="simple-udp-client.py"
 --8<-- "snippets/simple-udp-client.py"
 ```
 
 ## Receiving Packets
-We can listen for data via a simple UDP server. 
+We can listen for data via a simple UDP server.
 ``` py title="simple-udp-server.py"
 --8<-- "snippets/simple-udp-server.py"
 ```
@@ -73,7 +72,7 @@ $ ip route get 8.8.8.8
 ```
 
 ## Packet-Sending Tools
-Netcat is a tool that can send UDP and TCP packets. 
+Netcat is a tool that can send UDP and TCP packets.
 
 ```
 $ nc <ip> <port>     # send TCP packet
@@ -100,7 +99,7 @@ $ ping <ip>
 ```
 ## View open ports
 ```
-$ netstat -tna 
+$ netstat -tna
 ```
 
 ## Packet Construction
@@ -110,22 +109,22 @@ $ netstat -tna
 </figure>
 
 ### Transport Layer
-- Payload -> Transport Layer: 
-- transport-layer header added. 
+- Payload -> Transport Layer:
+- transport-layer header added.
 - UDP or TCP
-> Most Important Information: Source/Destination Port Numbers. 
+> Most Important Information: Source/Destination Port Numbers.
 ### Network Layer
 - IP header is added.
 - Routing happens here as well.
 > Most Important Information: Source/Destination IP Addresses.
 ### Data-Link Layer
 - MAC-layer header is added.
-> Most Important Information: Source/Destination MAC Addresses. 
+> Most Important Information: Source/Destination MAC Addresses.
 
 ## Packet Sniffing
 !!! info "Packet Sniffing"
 
-    Computer programs or hardware that can log traffic passing over a computer network. 
+    Computer programs or hardware that can log traffic passing over a computer network.
 
 ### List of Packet Sniffing Tools
 - [Wireshark](https://www.wireshark.org/docs/wsug_html/){:target="_blank"}
@@ -137,11 +136,11 @@ Command to sniff network traffic on a defined interface.
 ```
 $ tcpdump -n -i enp5s0
 ```
-Command to sniff TCP/443 traffic on a defined interface. 
+Command to sniff TCP/443 traffic on a defined interface.
 ```
 $ tcpdump -n -i enp5p0 -vvv "tcp port 443"
 ```
-Command to save captured packets to a pcap file. 
+Command to save captured packets to a pcap file.
 ```
 $ tcpdump -n -i enp5s0 -w "/tmp/packets.pcap"
 ```
@@ -176,4 +175,3 @@ We can sniff network traffic using python.
     | **Packet Size**                | Filter packets larger than a specific size           | `greater 1500`                                    |
     | **TCP SYN Packets**            | Filter TCP packets with SYN flag                     | `tcp[tcpflags] & tcp-syn != 0`                    |
     | **Combination**                | Combine multiple filters with logical operators      | `tcp and src host 192.168.1.1 and port 80`        |
-
