@@ -11,4 +11,4 @@ icon: material/notebook-multiple
 === "Course Textbook"
     Internet Security: A Hands-on Approach. 3rd Edition by Wenliang Du ([:simple-amazon:](https://a.co/d/7FAbYYp))
 
-[Network Security Notes](network_security/notes.md){ .md-button }
+[Network Security Notes](NYU/Network_Security/index.md){ .md-button }
